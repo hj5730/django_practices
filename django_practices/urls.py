@@ -19,6 +19,10 @@ from django.urls import path
 import helloworld.views as helloworldviews
 
 urlpatterns = [
+    path('', helloworldviews.main), # main은 url을 안주면 됨
+    path('form/', helloworldviews.form),
+    path('join', helloworldviews.join), # POST 방식으로 할 때는 join으로 설정하고, #GET 방식으로 할때는 join/으로 함
     path('hello1/', helloworldviews.hello1),
+    path('tags/', helloworldviews.tags),
     path('admin/', admin.site.urls),
 ]

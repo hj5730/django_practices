@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form test</title>
+</head>
+<body>
+    <h1>회원 가입</h1>
+    <form action="/join" method="post">{% csrf_token %}
+        이메일 : <input type="text" name="email" value=""/>
+        <br/><br/>
+
+        비밀번호 : <input type="password" name="password" value=""/>
+        <br/><br/>
+
+        성별 : <input type="radio" name="gender" value="mail"/> 남
+        <input type="radio" name="gender" value="femail" checked="checked"/> 여
+        <!-- gender 에서 이름을 다르게 gender1, gender2로 하면 둘중 하나 선택이 아니게 됨.
+         그래서 radio를 쓸 때는 이름을 같게 해야함.
+         그리고 checked를 쓰면 디폴트 값으로 미리 선택이 되어있음 (포커스)-->
+
+        <br/>
+        <!-- 아무리 엔터수, 스페이스 수가 많아도 html에서는 스페이스 1칸으로 보여지는데,
+        많이 띄고 싶을 때 br을 사용하면 엔터 수를 많이 설정할 수 있음 (줄바꿈 개념)-->
+
+        취미 :
+        <input type="checkbox" name="hobbies" value="swimming"> 수영
+        <input type="checkbox" name="hobbies" value="coding"> 코딩
+        <input type="checkbox" name="hobbies" value="reading"> 독서
+        <input type="checkbox" name="hobbies" value="cooking"> 요리
+        <br/><br/>
+
+        자기소개 : <br/>
+        <textarea name="desc" style="width:200px; height:100px"></textarea>
+
+        <input type="submit" value="가입" />
+    </form>
+    <a href="/">main으로 가기</a>
+</body>
+</html>
