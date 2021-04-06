@@ -5,9 +5,9 @@ from django.shortcuts import render
 from emaillist01 import models
 
 def index(request):
-    results = models.findall()
+    results = models.findall() # findall(): 모든 문자열을 리스트로 바꿔준다.
     data = {"emaillist_list": results} # 중요한 것은 results가 리스트라는 것. emaillist가 딕셔너리 라는 것.
-    return render(request, 'emaillist01/index.html', data)
+    return render(request, 'emaillist01/index.html', data) # render : template를 html로 반환
 
 def form(request):
     return render(request, 'emaillist01/form.html')

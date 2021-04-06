@@ -87,7 +87,7 @@ import os
 ```
 
 
-### 2. helloworld application 만들기
+#### 2. helloworld application 만들기
 1) application 생성
 ```shell (터미널에서 하라는 뜻)
 (venv) # python manage.py startapp helloworld
@@ -116,7 +116,8 @@ django_practices
 
 4) urls.py 에 URL 등록하고 views.py 에 요청 처리 함수 만들고 template(html) 연결하고.... (반복반복)
 
-### 3. emaillist01 application 만들기
+
+#### 3. emaillist01 application 만들기
 1) application 생성
 ```shell (터미널에서 하라는 뜻)
 (venv) # python manage.py startapp emaillist01
@@ -126,6 +127,7 @@ django_practices
 ```python
 INSTALLED_APPS = [
     'emaillist01',
+    'helloworld',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -139,14 +141,16 @@ INSTALLED_APPS = [
 
 3) applcation의 template 디렉토리 생성
 django_practices
-|---templates
+|---templates 
+       |--- helloworld
        |--- emaillist01
    
    
 
 4) urls.py 에 URL 등록하고 views.py 에 요청 처리 함수 만들고 template(html) 연결하고.... (반복반복)
 
-### 4. guestbook01 application 만들기
+
+#### 4. guestbook01 application 만들기
 1) application 생성
 ```shell (터미널에서 하라는 뜻)
 (venv) # python manage.py startapp guestbook01
@@ -172,9 +176,32 @@ INSTALLED_APPS = [
 3) applcation의 template 디렉토리 생성
 django_practices
 |---templates
-       |--- guestbook01
-       |--- emaillist01
        |--- helloworld
+       |--- emaillist01
+       |--- guestbook01
    
 
 4) urls.py 에 URL 등록하고 views.py 에 요청 처리 함수 만들고 template(html) 연결하고.... (반복반복)
+
+5) template filter 사용
+- linebreaksbr:      'aaaa\nbbbb' --|->  'aaaa&lt;br&gt;bbbb'
+- mathfilters
+  1. 설치
+     ```shell
+        (venv) # pip install django-mathfilters
+     ```
+  2. 설정
+     ```python
+        INSTALLED_APPS = [
+            ...
+            'mathfilters',
+            ...
+        ]
+     ```
+  3. 사용 예
+    ```html
+       {% load mathfilters %}
+       <p>
+            10 - 5 + 1 = {{ 10 | sub:5 | add:1 }}
+       </p>  
+    ```
