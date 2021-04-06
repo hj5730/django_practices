@@ -24,4 +24,9 @@ def deleteform(request):
     return render(request, 'guestbook01/deleteform.html')
 
 def delete(request):
-    pass
+    no = request.POST['no']
+    password = request.POST['password']
+
+    models.deleteby_no_and_password(no, password)
+
+    return HttpResponseRedirect("/guestbook01")
