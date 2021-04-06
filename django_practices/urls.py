@@ -19,6 +19,7 @@ from django.urls import path
 import helloworld.views as helloworldviews
 import emaillist01.views as emaillist01views
 import guestbook01.views as guestbook01views
+import emaillist02.views as emaillist02views
 
 urlpatterns = [
     path('', helloworldviews.main), # main은 url을 안주면 됨
@@ -35,6 +36,8 @@ urlpatterns = [
     path('guestbook01/add', guestbook01views.add),
     path('guestbook01/deleteform', guestbook01views.deleteform),
     path('guestbook01/delete', guestbook01views.delete),
+
+    path('emaillist02/', emaillist02views.index),
 
     path('admin/', admin.site.urls),
 ]

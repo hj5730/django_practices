@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'emaillist02',
     'guestbook01',
     'emaillist01',
     'helloworld',

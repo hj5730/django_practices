@@ -205,3 +205,51 @@ django_practices
             10 - 5 + 1 = {{ 10 | sub:5 | add:1 }}
        </p>  
     ```
+  
+#### 5. emaillist02 application 만들기
+1) application 생성
+```shell (터미널에서 하라는 뜻)
+(venv) # python manage.py startapp emaillist02
+```
+
+2) application 등록(settings.py)
+```python
+INSTALLED_APPS = [
+    'emaillist02',
+    'emaillist01',
+    'helloworld',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+* 맨위의 helloworld를 추가해주면 됨.
+  (새로 만들 application 이름)
+
+3) applcation의 template 디렉토리 생성
+django_practices
+|---templates 
+       |--- helloworld
+       |--- emaillist01
+       |--- emaillist02
+   
+4) Model class 정의하고 테이블 생성
+   ```python
+      class Emaillist(models.Model):
+         first_name = models.CharField(max_length=45)
+         last_name = models.CharField(max_length=45)
+         email = models.CharField(max_length=200)
+   
+         def __str__(self):
+            return f'Emaillist({self.first_name}, {self.last_name}, {self.email})'
+   ```
+   
+   ```shell
+      (venv) # python manage.py makemigrations (-> DB에 반영할 때)
+      (venv) # python manage.py migrate
+   ```
+   
+5) urls.py 에 URL 등록하고 views.py 에 요청 처리 함수 만들고 template(html) 연결하고.... (반복반복)
